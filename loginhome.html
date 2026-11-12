@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Store</title>
+<style>
+  :root{
+    --ink:#141414;
+    --paper:#f5f4f0;
+    --line:#141414;
+    --accent:#ff4d1c;
+    --accent-ink:#141414;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  body{
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+  }
+
+  /* ===== NAVBAR ===== */
+  .navbar{
+    display:grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items:center;
+    padding: 18px 40px;
+    background:var(--paper);
+    border-bottom: 3px solid var(--ink);
+  }
+
+  .logo{
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    justify-self:start;
+  }
+  .logo span{ color:var(--accent); }
+
+  .nav-center{
+    display:flex;
+    gap: 48px;
+    justify-self:center;
+  }
+
+  .nav-center a{
+    position:relative;
+    text-decoration:none;
+    color:var(--ink);
+    font-weight:700;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 2px;
+  }
+
+  .nav-center a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:-2px;
+    width:0%;
+    height:3px;
+    background:var(--accent);
+    transition: width .25s ease;
+  }
+
+  .nav-center a:hover::after{ width:100%; }
+
+  .nav-right{
+    display:flex;
+    gap: 14px;
+    justify-self:end;
+    align-items:center;
+  }
+
+  .btn{
+    text-decoration:none;
+    font-weight:700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 2px solid var(--ink);
+    transition: all .2s ease;
+  }
+
+  .btn-login{
+    color:var(--ink);
+    background:transparent;
+  }
+  .btn-login:hover{
+    background:var(--ink);
+    color:var(--paper);
+  }
+
+  .btn-signup{
+    color:var(--accent-ink);
+    background:var(--accent);
+    border-color:var(--accent);
+  }
+  .btn-signup:hover{
+    background:var(--ink);
+    border-color:var(--ink);
+    color:var(--paper);
+  }
+
+  /* mobile */
+  @media (max-width: 700px){
+    .navbar{
+      grid-template-columns: 1fr;
+      row-gap: 14px;
+      padding: 16px 20px;
+    }
+    .logo, .nav-center, .nav-right{ justify-self:center; }
+    .nav-center{ gap: 28px; }
+  }
+
+  .navbar a.active {
+    color: var(--accent);
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 10px;
+  }
+
+  /* ===== GALLERY ===== */
+  /* 4 columns per row; extra items wrap to new rows automatically */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .gallery-item {
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    /* scales with viewport height instead of a fixed px value */
+    height: 40vh;
+    min-height: 220px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gallery-item:hover {
+    border: 1px solid var(--accent);
+  }
+
+  .gallery-item .desc {
+    padding: 15px;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* stack to 2 columns on tablets, 1 on phones so images never get squeezed */
+  @media (max-width: 900px){
+    .gallery{ grid-template-columns: repeat(2, 1fr); }
+    .gallery-item img{ height: 32vh; }
+  }
+  @media (max-width: 480px){
+    .gallery{ grid-template-columns: 1fr; padding: 12px; }
+    .gallery-item img{ height: 45vh; }
+  }
+</style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo"><span>Store</span></div>
+
+    <div class="nav-center">
+      <a href="loginhome.html" class="active">Home</a>
+      <a href="men.html">Men</a>
+      <a href="women.html">Women</a>
+    </div>
+
+    <div class="nav-right">
+	<a href="mycart.jsp" class="btn btn-signup">Cart</a>
+      <a href="profile.jsp" class="btn btn-login">Profile</a>
+    </div>
+  </nav>
+ 
+  <div class="gallery">
+ 
+    <div class="gallery-item">
+      <a href="adidas.jsp">
+        <img src="image/adidas.jpg" alt="Adidas">
+      </a>
+      <div class="desc">ADIDAS</div>
+    </div>
+ 
+    <div class="gallery-item">
+      <a href="login.jsp">
+        <img src="image/puma.jpg" alt="Puma">
+      </a>
+      <div class="desc">PUMA</div>
+    </div>
+ 
+    <div class="gallery-item">
+      <a href="login.jsp">
+        <img src="image/sg.jpg" alt="SG">
+      </a>
+      <div class="desc">SG</div>
+    </div>
+ 
+    <div class="gallery-item">
+      <a href="login.jsp">
+        <img src="image/vk.jpg" alt="VK-18">
+      </a>
+      <div class="desc">VK-18</div>
+    </div>
+	
+	    <div class="gallery-item">
+      <a href="login.jsp">
+        <img src="image/comet.jpg" alt="COMET">
+      </a>
+      <div class="desc">COMET</div>
+    </div>
+	
+	    <div class="gallery-item">
+      <a href="login.jsp">
+        <img src="image/dsc.jpg" alt="DSC8">
+      </a>
+      <div class="desc">DSC</div>
+    </div>
+	
+
+	
+    <div class="gallery-item">
+      <a href="login.jsp">
+        <img src="image/nike1.jpg" alt="Nike">
+      </a>
+      <div class="desc">NIKE</div>
+    </div>
+	
+	    <div class="gallery-item">
+      <a href="login.jsp">
+        <img src="image/reebok.jpg" alt="REEBOK">
+      </a>
+      <div class="desc">REEBOK</div>
+    </div>
+	
+
+
+ 
+  </div>
+
+</body>
+</html>
